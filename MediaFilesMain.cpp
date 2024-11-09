@@ -106,7 +106,7 @@ void DeleteMedia(vector<MediaFileParent*>& files)
   char title[50];
 
   //gets input for what to delete for
-  cout << "Would you like to delete based on Title(1) or Year(2) type either 1 or 2 to choose";
+  cout << "Would you like to delete based on Title(1) or Year(2) type either 1 or 2 to choose \n";
   cin >> choice;
   cin.ignore();
 
@@ -115,7 +115,7 @@ void DeleteMedia(vector<MediaFileParent*>& files)
   if(choice == 1)
     {
       //asks for what to delete
-      cout << "what title would u like to delete";
+      cout << "what title would u like to delete \n";
       cin.getline(title, 50, '\n');
 
       //searches through all files
@@ -155,7 +155,7 @@ void DeleteMedia(vector<MediaFileParent*>& files)
     }
   else // does the same as above just with year instead of title
     {
-      cout << "what year would u like to delete";
+      cout << "what year would u like to delete \n";
       cin >> year;
       cin.ignore();
 
@@ -196,20 +196,20 @@ void SearchMedia(vector<MediaFileParent*>& files)
   int choice;
   int year;
   char title[50];
-  cout << "Would you like to search based on Title(1) or Year(2) type either 1 or 2 to choose";
+  cout << "Would you like to search based on Title(1) or Year(2) type either 1 or 2 to choose \n";
   cin >> choice;
   cin.ignore();
 
   if(choice == 1)
     {
       //asks for what to search for
-      cout << "what title would u like to search";
+      cout << "what title would u like to search \n";
       cin.getline(title, 50, '\n');
     }
   else
     {
       //asks for what to search for
-      cout << "what year would u like to search";
+      cout << "what year would u like to search \n";
       cin >> year;
       cin.ignore();
     }
@@ -249,7 +249,7 @@ int main()
   char input;
 
   //gets first input
-  cout << "Use the single capital letters to input ADD(A), SEARCH(S), DELETE(D), QUIT(Q)";
+  cout << "Use the single capital letters to input ADD(A), SEARCH(S), DELETE(D), QUIT(Q) \n";
       cin >> input;
       cin.ignore();
 
@@ -265,7 +265,7 @@ int main()
 	DeleteMedia(files);
 
       //gets next input
-      cout << "Use the single capital letters to input ADD(A), SEARCH(S), DELETE(D), QUIT(Q)";
+      cout << "Use the single capital letters to input ADD(A), SEARCH(S), DELETE(D), QUIT(Q) \n";
       cin >> input;
       cin.ignore();      
     }
