@@ -129,7 +129,7 @@ void DeleteMedia(vector<MediaFileParent*>& files)
 	    {
 
 	      //gets the files
-           MediaFileParent* obj = files.at(i);
+	      MediaFileParent* obj = (*it);
 
 	   //asks whether u do actually want to delete it
           cout << "Are you sure you want to delete(Y/N): \n";
@@ -143,10 +143,11 @@ void DeleteMedia(vector<MediaFileParent*>& files)
 	  //if you do want to delete it it gets deleted
           if(input == 'Y')
             {
-               auto pos = files.begin() + 1;
+	      delete obj;
+               auto pos = files.begin() + i;
                files.erase(pos);
 
-               delete obj;
+               
             }
         }
       i++;
@@ -162,10 +163,10 @@ void DeleteMedia(vector<MediaFileParent*>& files)
         {
 	  if((*it)->getYear() == year)
 	    {
-             MediaFileParent* obj = files.at(i);
+	      MediaFileParent* obj = (*it);
 
              cout << "Are you sure you want to delete(Y/N): \n";
-             obj->printInfo();
+             (*it)->printInfo();
 
              char input;
 
@@ -174,14 +175,16 @@ void DeleteMedia(vector<MediaFileParent*>& files)
 
              if(input == 'Y')
               {
-               auto pos = files.begin() + 1;
+		delete obj;
+               auto pos = files.begin() + i;
                files.erase(pos);
 
-               delete obj;
+               
               }
 	    }
+	  i++;
 	}
-      i++;
+     
 
     }
 }
@@ -266,15 +269,14 @@ int main()
       cin >> input;
       cin.ignore();      
     }
-
+  
   //this deletes all the rest of the remaining elements
    for (std::vector<MediaFileParent*>::iterator it = files.begin() ; it != files.end(); ++it)
             {
-	      MediaFileParent* obj = files.at(0);
-	      auto pos = files.begin() + 1;
-	      files.erase(pos);
-
+	      MediaFileParent* obj = (*it);
 	      delete obj;
+	      auto pos = files.begin();
+	      files.erase(pos);
 	    }
 
    cout << "deleted all";
